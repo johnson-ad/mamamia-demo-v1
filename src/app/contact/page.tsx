@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { motion, useAnimation, AnimatePresence } from 'framer-motion';
+import { motion, useAnimation, AnimatePresence, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 declare global {
@@ -155,7 +155,7 @@ export default function Contact() {
   };
 
   // Animation variants
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -166,7 +166,7 @@ export default function Contact() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants : Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
@@ -179,7 +179,7 @@ export default function Contact() {
     }
   };
 
-  const cardVariants = {
+  const cardVariants : Variants = {
     hidden: { opacity: 0, y: 50 },
     visible: i => ({
       opacity: 1,
@@ -202,7 +202,7 @@ export default function Contact() {
     }
   };
 
-  const inputVariants = {
+  const inputVariants: Variants = {
     focused: {
       scale: 1.02,
       boxShadow: "0 0 0 3px rgba(var(--color-accent-rgb), 0.3)",
@@ -225,7 +225,7 @@ export default function Contact() {
     }
   };
 
-  const iconVariants = {
+  const iconVariants: Variants = {
     hidden: { opacity: 0, scale: 0, rotate: -30 },
     visible: i => ({
       opacity: 1,
@@ -249,7 +249,7 @@ export default function Contact() {
     }
   };
 
-  const buttonVariants = {
+  const buttonVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -275,7 +275,7 @@ export default function Contact() {
     }
   };
 
-  const socialIconVariants = {
+  const socialIconVariants: Variants = {
     hover: {
       y: -5,
       scale: 1.1,
@@ -290,7 +290,7 @@ export default function Contact() {
     }
   };
 
-  const mapVariants = {
+  const mapVariants: Variants = {
     hidden: { opacity: 0, scale: 0.9 },
     visible: {
       opacity: 1,
@@ -304,7 +304,7 @@ export default function Contact() {
     }
   };
 
-  const notificationVariants = {
+  const notificationVariants: Variants = {
     hidden: { opacity: 0, y: -20, height: 0 },
     visible: {
       opacity: 1,
@@ -387,7 +387,7 @@ export default function Contact() {
             variants={itemVariants}
             className="text-xl text-gray-600 max-w-3xl mx-auto"
           >
-            Une question, une suggestion ou une envie de collaborer ? N'hésitez pas à nous contacter, nous serons ravis d'échanger avec vous.
+            Une question, une suggestion ou une envie de collaborer ? N&apos;hésitez pas à nous contacter, nous serons ravis d&apos;échanger avec vous.
           </motion.p>
         </motion.div>
 
@@ -443,7 +443,7 @@ export default function Contact() {
                   <svg className="h-5 w-5 mr-3 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                   </svg>
-                  Une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer ultérieurement.
+                  Une erreur s&apos;est produite lors de l&apos;envoi de votre message. Veuillez réessayer ultérieurement.
                 </motion.div>
               )}
             </AnimatePresence>

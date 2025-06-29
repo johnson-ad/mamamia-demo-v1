@@ -3,8 +3,8 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
-import { motion, useScroll, useTransform, useInView, useAnimation, AnimatePresence } from 'framer-motion';
+import {   useLoadScript } from "@react-google-maps/api";
+import { motion, useScroll, useTransform, useInView, useAnimation, Variants } from 'framer-motion';
 
 interface Product {
   id: number;
@@ -91,7 +91,7 @@ export default function Home() {
   }, [featuredInView, presentationInView, testimonialsInView, ctaInView, featuredControls, presentationControls, testimonialsControls, ctaControls]);
 
   // Variants pour les animations
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -103,7 +103,7 @@ export default function Home() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { y: 50, opacity: 0 },
     visible: {
       y: 0,
@@ -115,8 +115,8 @@ export default function Home() {
       }
     }
   };
-  
-  const cardVariants = {
+
+  const cardVariants: Variants = {
     hidden: { y: 50, opacity: 0 },
     visible: (i: number) => ({
       y: 0,
@@ -138,8 +138,8 @@ export default function Home() {
       }
     }
   };
-  
-  const buttonVariants = {
+
+  const buttonVariants: Variants = {
     hover: {
       scale: 1.05,
       boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
@@ -153,8 +153,8 @@ export default function Home() {
       scale: 0.95
     }
   };
-  
-  const featureIconVariants = {
+
+  const featureIconVariants: Variants = {
     hidden: { scale: 0, opacity: 0 },
     visible: (i: number) => ({
       scale: 1,
@@ -280,7 +280,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-xl font-bold text-text mb-2">Qualité Premium</h3>
-              <p className="text-gray-600">Nous sélectionnons les meilleurs ingrédients pour vous offrir des produits d'exception.</p>
+              <p className="text-gray-600">Nous sélectionnons les meilleurs ingrédients pour vous offrir des produits d&apos;exception.</p>
             </div>
           </motion.div>
 
@@ -441,7 +441,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <p className="text-gray-600 italic">"Les boissons sont rafraîchissantes et originales. J'adore particulièrement le milkshake fraise qui est un vrai délice !"</p>
+            <p className="text-gray-600 italic">"Les boissons sont rafraîchissantes et originales. J&apos;adore particulièrement le milkshake fraise qui est un vrai délice !"</p>
           </motion.div>
 
           <motion.div

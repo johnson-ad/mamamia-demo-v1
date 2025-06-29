@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, useAnimation, AnimatePresence } from 'framer-motion';
+import { motion, useAnimation, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Image from 'next/image';
 
@@ -71,22 +71,24 @@ export default function AboutPage() {
     }
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 10
-      }
-    }
-  };
 
-  const cardVariants = {
+const itemVariants: Variants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 10
+    }
+  }
+};      
+
+
+  const cardVariants: Variants = {
     hidden: { opacity: 0, y: 50 },
-    visible: i => ({
+    visible: (i: number) => ({
       opacity: 1,
       y: 0,
       transition: {
@@ -107,7 +109,7 @@ export default function AboutPage() {
     }
   };
 
-  const imageVariants = {
+  const imageVariants : Variants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: {
       opacity: 1,
@@ -120,7 +122,7 @@ export default function AboutPage() {
     }
   };
 
-  const valueIconVariants = {
+  const valueIconVariants : Variants = {
     hidden: { opacity: 0, scale: 0, rotate: -30 },
     visible: i => ({
       opacity: 1,
@@ -204,7 +206,7 @@ export default function AboutPage() {
             variants={itemVariants}
             className="text-xl text-gray-600 max-w-3xl mx-auto"
           >
-            Découvrez notre histoire, nos valeurs et l'équipe passionnée derrière nos produits artisanaux.
+            Découvrez notre histoire, nos valeurs et l&apos;équipe passionnée derrière nos produits artisanaux.
           </motion.p>
         </motion.div>
 
@@ -255,19 +257,19 @@ export default function AboutPage() {
                 className="text-lg text-gray-700 mb-8 leading-relaxed"
                 variants={itemVariants}
               >
-                Fondée en 2010 par deux amis passionnés de gastronomie, notre entreprise est née d'une vision simple : créer des produits glacés et des boissons de qualité exceptionnelle, en utilisant uniquement des ingrédients naturels et locaux.
+                Fondée en 2010 par deux amis passionnés de gastronomie, notre entreprise est née d&apos;une vision simple : créer des produits glacés et des boissons de qualité exceptionnelle, en utilisant uniquement des ingrédients naturels et locaux.
               </motion.p>
               <motion.p 
                 className="text-lg text-gray-700 mb-8 leading-relaxed"
                 variants={itemVariants}
               >
-                Ce qui a commencé comme une petite boutique dans le centre-ville s'est transformé au fil des années en une marque reconnue pour son engagement envers la qualité, l'innovation et le respect des traditions artisanales.
+                Ce qui a commencé comme une petite boutique dans le centre-ville s&apos;est transformé au fil des années en une marque reconnue pour son engagement envers la qualité, linnovation et le respect des traditions artisanales.
               </motion.p>
               <motion.p 
                 className="text-lg text-gray-700 leading-relaxed"
                 variants={itemVariants}
               >
-                Aujourd'hui, nous sommes fiers de servir des milliers de clients chaque année et de continuer à développer de nouvelles saveurs et expériences gustatives tout en restant fidèles à nos valeurs fondatrices.
+                Aujourd&apos;hui, nous sommes fiers de servir des milliers de clients chaque année et de continuer à développer de nouvelles saveurs et expériences gustatives tout en restant fidèles à nos valeurs fondatrices.
               </motion.p>
             </motion.div>
           </div>
@@ -434,5 +436,5 @@ export default function AboutPage() {
         </motion.section>
       </div>
     </div>
-  );
+  )
 }

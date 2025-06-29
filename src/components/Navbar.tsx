@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { motion, AnimatePresence, useScroll, useTransform, Variants } from 'framer-motion';
 
 
@@ -38,7 +38,7 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
-  const menuVariants = {
+  const menuVariants: Variants = {
     open: { 
       opacity: 1, 
       height: 'auto', 
