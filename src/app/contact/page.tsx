@@ -134,6 +134,7 @@ export default function Contact() {
 
   const handleBlur = () => {
     setFocusedField(null);
+    
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -148,8 +149,8 @@ export default function Contact() {
           email: '',
           subject: '',
           message: ''
-        });
-        setFormStatus(null);
+        });        
+        setFormStatus("idle");
       }, 3000);
     }, 1000);
   };
