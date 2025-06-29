@@ -2,7 +2,9 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { motion, useAnimation, useInView } from 'framer-motion';
+import { motion, useAnimation, useInView, Variants } from 'framer-motion';
+
+
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -25,31 +27,32 @@ const Footer = () => {
     }
   };
   
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 10
-      }
+
+  const itemVariants: Variants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 10
     }
-  };
+  }
+};
   
-  const socialVariants = {
-    hover: (i : Number) => ({
+  const socialVariants: Variants = {
+    hover: {
       y: -5,
       x: 0,
       scale: 1.1,
-      rotate: i % 2 === 0 ? 5 : -5,
+      rotate: 5,
       transition: {
         type: "spring",
         stiffness: 400,
         damping: 10
       }
-    })
+    }
   };
 
   return (
@@ -127,10 +130,7 @@ const Footer = () => {
                   href={social.href} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  custom={i}
-                  variants={itemVariants}
                   whileHover="hover"
-                  custom={i}
                   variants={socialVariants}
                   className="bg-white/10 p-3 rounded-full hover:bg-accent/20 transition-colors duration-300"
                 >

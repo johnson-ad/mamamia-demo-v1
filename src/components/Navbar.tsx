@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform, Variants } from 'framer-motion';
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -57,37 +58,41 @@ const Navbar = () => {
       } 
     }
   };
-  
-  const itemVariants = {
-    open: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { type: 'spring', stiffness: 300, damping: 24 }
-    },
-    closed: { opacity: 0, y: 20, transition: { duration: 0.2 } }
-  };
-  
-  const logoVariants = {
+
+  const logoVariants: Variants = {
     hidden: { opacity: 0, x: -20 },
     visible: { 
       opacity: 1, 
       x: 0, 
       transition: { 
-        type: 'spring',
+        type: "spring" as const,  // Properly typed
         stiffness: 200,
         delay: 0.2
       }
     }
   };
-  
-  const navItemVariants = {
+
+  const itemVariants: Variants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 10
+      }
+    }
+  };
+
+  const navItemVariants: Variants = {
     hidden: { opacity: 0, y: -10 },
     visible: (i: number) => ({
       opacity: 1,
       y: 0,
       transition: {
         delay: i * 0.1 + 0.3,
-        type: 'spring',
+        type: 'spring' as const,  // Proper const assertion
         stiffness: 150
       }
     })
