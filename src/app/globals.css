@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+:root {
+  --background: #FAFAFA;
+  --foreground: #191919;
+  --accent: #FF4D8B;
+  --button: #3F3F3F;
+  --active: #FCA311;
+  --card: #FFFFFF;
+  --muted: #F0F0F0;
+  --border: #E5E5E5;
+  --shadow: rgba(0, 0, 0, 0.05);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans, Arial, Helvetica, sans-serif);
+  overflow-x: hidden;
+}
+
+/* Styles pour les animations et transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Styles améliorés pour l'interface */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px var(--shadow);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent), var(--active));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Animations personnalisées */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Styles pour les boutons */
+.button-primary {
+  background: linear-gradient(135deg, var(--accent), var(--button));
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 77, 139, 0.3);
+}
+
+.button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 77, 139, 0.4);
+}
+
+/* Styles pour les cartes */
+.card {
+  background: var(--card);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
